@@ -45,7 +45,7 @@
             <p><a href="/documentation/testing.html">Testing</a></p>
             <p><a href="/documentation/playframework-support.html">Play Support</a></p>
             <p><a href="/documentation/dbconsole.html">dbconsole</a></p>
-            <p><a href="http://www.javadoc.io/doc/org.scalikejdbc/scalikejdbc-core_2.11/2.2.9">Core API Doc</a></p>
+            <p><a href="http://www.javadoc.io/doc/org.scalikejdbc/scalikejdbc-core_2.11/2.3.1">Core API Doc</a></p>
             <p><a href="/documentation/faq.html">FAQ</a></p>
             <p><a href="/contribution.html">Contribution</a></p>
           </div>
@@ -198,6 +198,8 @@ db.default.url="jdbc:postgresql://localhost:5432/scalikejdbc"
 <span class="nc">DBs</span><span class="o">.</span><span class="n">setupAll</span><span class="o">()</span>
 <span class="c1">// DBs.setup()
 // DBs.setup('legacy)
+// // Unlike DBs.setupAll(), DBs.setup() doesn't load configurations under global settings automatically
+// DBs.loadGlobalSettings()
 </span>
 <span class="c1">// loaded from "db.default.*"
 </span><span class="k">val</span> <span class="n">memberIds</span> <span class="k">=</span> <span class="nc">DB</span> <span class="n">readOnly</span> <span class="o">{</span> <span class="k">implicit</span> <span class="n">session</span> <span class="k">=&gt;</span>
