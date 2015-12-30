@@ -12,12 +12,11 @@
   </head>
   <body>
     <div class="container">
-    <div class="navbar" role="navigation">
+    <div class="navbar" role="navigation" id="header">
       <div class="container">
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a class="navbar-brand" href="/">ScalikeJDBC</a></li>
-            <li><a href="/documentation/1.x/">ScalikeJDBC 1.x</a></li>
             <li><a href="http://typesafe.com/activator/template/scalikejdbc-activator-template">Typesafe Activator</a></li>
             <li><a href="https://groups.google.com/group/scalikejdbc-users-group">Users Group</a></li>
             <li><a href="https://github.com/scalikejdbc/scalikejdbc">GitHub</a></li>
@@ -26,43 +25,18 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-        <div class="col-xs-2">
-          <div class="content small">
-            <h5>Latest version</h5>
-            <hr/>
-            <p><a href="/documentation/setup.html">Setup</a></p>
-            <p><a href="/documentation/configuration.html">Configuration</a></p>
-            <p><a href="/documentation/connection-pool.html">Connection Pool</a></p>
-            <p><a href="/documentation/operations.html">Operations</a></p>
-            <p><a href="/documentation/transaction.html">Transaction</a></p>
-            <p><a href="/documentation/auto-session.html">Auto Session</a></p>
-            <p><a href="/documentation/sql-interpolation.html">SQLInterpolation</a></p>
-            <p><a href="/documentation/query-dsl.html">QueryDSL</a></p>
-            <p><a href="/documentation/one-to-x.html">One-to-x API</a></p>
-            <p><a href="/documentation/auto-macros.html">Auto Macros</a></p>
-            <p><a href="/documentation/query-inspector.html">Query Inspector</a></p>
-            <p><a href="/documentation/reverse-engineering.html">Reverse Engineering</a></p>
-            <p><a href="/documentation/testing.html">Testing</a></p>
-            <p><a href="/documentation/playframework-support.html">Play Support</a></p>
-            <p><a href="/documentation/dbconsole.html">dbconsole</a></p>
-            <p><a href="http://www.javadoc.io/doc/org.scalikejdbc/scalikejdbc-core_2.11/2.3.2">Core API Doc</a></p>
-            <p><a href="/documentation/faq.html">FAQ</a></p>
-            <p><a href="/contribution.html">Contribution</a></p>
-          </div>
-        </div>
-        <div class="col-xs-10">
-          <div class="content">
-<a href="https://github.com/scalikejdbc/scalikejdbc"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-            <h1 id="scalikejdbc">ScalikeJDBC</h1>
+    <div class="col-xs-6 pull-right" style="height:50px;">
+      <gcse:searchbox-only></gcse:searchbox-only>
+    </div>
+      <div class="col-xs-10 left">
+        <div class="content">
+          <h1 id="scalikejdbc">ScalikeJDBC</h1>
 
 <hr/>
 
 <h2 id="just-write-sql-and-get-things-done">Just write SQL and get things done!</h2>
 
 <hr/>
-
-<p><a href="https://twitter.com/ScalikeJDBC" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @ScalikeJDBC</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?&#39;http&#39;:&#39;https&#39;;if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+&#39;://platform.twitter.com/widgets.js&#39;;fjs.parentNode.insertBefore(js,fjs);}}(document, &#39;script&#39;, &#39;twitter-wjs&#39;);</script></p>
 
 <p><img alt="Logo" src="/images/logo.png" /></p>
 
@@ -106,7 +80,7 @@
 
 <p>Unfortunately, no. Indeed, JDBC drivers block on socket IO. So using them to talk with RDBMS in async event driven architecture may not be appropriate. However, actually most of real world applications don&rsquo;t need event-driven architecture yet. JDBC is still important infrastructure for apps on the JVM.</p>
 
-<p>If you really prefer non-blocking database access, take a look at ScalikeJDBC-Async. It provides non-blocking APIs to talk with PostgreSQL and MySQL in the JDBC way. </p>
+<p>If you really prefer non-blocking database access, take a look at ScalikeJDBC-Async. It provides non-blocking APIs to talk with PostgreSQL and MySQL in the JDBC way.</p>
 
 <p><a href="https://github.com/scalikejdbc/scalikejdbc-async">https://github.com/scalikejdbc/scalikejdbc-async</a></p>
 
@@ -122,14 +96,14 @@
 
 <hr/>
 
-<p>All you need to do is just adding ScalikeJDBC, JDBC driver &amp; slf4j implementation. </p>
+<p>All you need to do is just adding ScalikeJDBC, JDBC driver &amp; slf4j implementation.</p>
 
 <h3 id="scalikejdbc-2-x">ScalikeJDBC 2.x</h3>
 
 <p>See <a href="/">ScalikeJDBC 2.x Documentation</a> in detail.</p>
 <pre class="highlight scala"><code><span class="c1">// Scala 2.10, 2.11
 </span><span class="n">libraryDependencies</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span>
-  <span class="s">"org.scalikejdbc"</span> <span class="o">%%</span> <span class="s">"scalikejdbc"</span>       <span class="o">%</span> <span class="s">"2.3.2"</span><span class="o">,</span>
+  <span class="s">"org.scalikejdbc"</span> <span class="o">%%</span> <span class="s">"scalikejdbc"</span>       <span class="o">%</span> <span class="s">"2.3.3"</span><span class="o">,</span>
   <span class="s">"com.h2database"</span>  <span class="o">%</span>  <span class="s">"h2"</span>                <span class="o">%</span> <span class="s">"1.4.190"</span><span class="o">,</span>
   <span class="s">"ch.qos.logback"</span>  <span class="o">%</span>  <span class="s">"logback-classic"</span>   <span class="o">%</span> <span class="s">"1.1.3"</span>
 <span class="o">)</span>
@@ -184,8 +158,8 @@
 <span class="c1">// table creation, you can run DDL by using #execute as same as JDBC
 </span><span class="n">sql</span><span class="s">"""
 create table members (
-  id serial not null primary key, 
-  name varchar(64), 
+  id serial not null primary key,
+  name varchar(64),
   created_at timestamp not null
 )
 """</span><span class="o">.</span><span class="n">execute</span><span class="o">.</span><span class="n">apply</span><span class="o">()</span>
@@ -195,7 +169,7 @@ create table members (
   <span class="n">sql</span><span class="s">"insert into members (name, created_at) values (${name}, current_timestamp)"</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="n">apply</span><span class="o">()</span>
 <span class="o">}</span>
 
-<span class="c1">// for now, retrieves all data as Map value 
+<span class="c1">// for now, retrieves all data as Map value
 </span><span class="k">val</span> <span class="n">entities</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Map</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Any</span><span class="o">]]</span> <span class="k">=</span> <span class="n">sql</span><span class="s">"select * from members"</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">toMap</span><span class="o">).</span><span class="n">list</span><span class="o">.</span><span class="n">apply</span><span class="o">()</span>
 
 <span class="c1">// defines entity object and extractor
@@ -213,8 +187,8 @@ create table members (
 <span class="c1">// use paste mode (:paste) on the Scala REPL
 </span><span class="k">val</span> <span class="n">m</span> <span class="k">=</span> <span class="nc">Member</span><span class="o">.</span><span class="n">syntax</span><span class="o">(</span><span class="s">"m"</span><span class="o">)</span>
 <span class="k">val</span> <span class="n">name</span> <span class="k">=</span> <span class="s">"Alice"</span>
-<span class="k">val</span> <span class="n">alice</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Member</span><span class="o">]</span> <span class="k">=</span> <span class="n">withSQL</span> <span class="o">{</span> 
-  <span class="n">select</span><span class="o">.</span><span class="n">from</span><span class="o">(</span><span class="nc">Member</span> <span class="n">as</span> <span class="n">m</span><span class="o">).</span><span class="n">where</span><span class="o">.</span><span class="n">eq</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">name</span><span class="o">)</span> 
+<span class="k">val</span> <span class="n">alice</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Member</span><span class="o">]</span> <span class="k">=</span> <span class="n">withSQL</span> <span class="o">{</span>
+  <span class="n">select</span><span class="o">.</span><span class="n">from</span><span class="o">(</span><span class="nc">Member</span> <span class="n">as</span> <span class="n">m</span><span class="o">).</span><span class="n">where</span><span class="o">.</span><span class="n">eq</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">name</span><span class="o">)</span>
 <span class="o">}.</span><span class="n">map</span><span class="o">(</span><span class="n">rs</span> <span class="k">=&gt;</span> <span class="nc">Member</span><span class="o">(</span><span class="n">rs</span><span class="o">)).</span><span class="n">single</span><span class="o">.</span><span class="n">apply</span><span class="o">()</span>
 </code></pre>
 
@@ -403,7 +377,7 @@ http://www.apache.org/licenses/LICENSE-2.0.html
 
 <h3 id="dbconsole">dbconsole</h3>
 
-<p>dbconsole is an extended sbt console to connect database. </p>
+<p>dbconsole is an extended sbt console to connect database.</p>
 
 <h4 id="mac-os-x-linux">Mac OS X, Linux</h4>
 <pre class="highlight shell"><code>curl -L http://git.io/dbconsole | sh
@@ -421,23 +395,60 @@ http://www.apache.org/licenses/LICENSE-2.0.html
 
 <p><img alt="Skinny framework" src="/images/skinny.png" /></p>
 
-<p>Skinny ORM is the default DB access library of <a href="http://skinny-framework.org/">Skinny Framework</a>. Skinny ORM is built upon ScalikeJDBC. </p>
+<p>Skinny ORM is the default DB access library of <a href="http://skinny-framework.org/">Skinny Framework</a>. Skinny ORM is built upon ScalikeJDBC.</p>
 
 <p>In most cases, ORM makes things easier.</p>
 
 <p><a href="http://skinny-framework.org/documentation/orm.html">http://skinny-framework.org/documentation/orm.html</a></p>
 
-            <hr/>
-            <div class="alert alert-info small"> 
-              If this webpage has typo or something wrong, Please report or fix. <a href="/contribution.html">How?</a>
-            </div> 
-<a href="https://twitter.com/ScalikeJDBC" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @ScalikeJDBC</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <hr/>
+          <div class="alert alert-warning small">
+            If this webpage has typo or something wrong, Please report or fix. <a href="/contribution.html">How?</a>
           </div>
         </div>
       </div>
+
+      <div class="col-xs-2 right">
+        <div class="content small">
+          <h5>Latest version</h5>
+          <hr/>
+          <p><a href="/documentation/setup.html">Setup</a></p>
+          <p><a href="/documentation/configuration.html">Configuration</a></p>
+          <p><a href="/documentation/connection-pool.html">Connection Pool</a></p>
+          <p><a href="/documentation/operations.html">Operations</a></p>
+          <p><a href="/documentation/transaction.html">Transaction</a></p>
+          <p><a href="/documentation/auto-session.html">Auto Session</a></p>
+          <p><a href="/documentation/sql-interpolation.html">SQLInterpolation</a></p>
+          <p><a href="/documentation/query-dsl.html">QueryDSL</a></p>
+          <p><a href="/documentation/one-to-x.html">One-to-x API</a></p>
+          <p><a href="/documentation/auto-macros.html">Auto Macros</a></p>
+          <p><a href="/documentation/query-inspector.html">Query Inspector</a></p>
+          <p><a href="/documentation/reverse-engineering.html">Reverse Engineering</a></p>
+          <p><a href="/documentation/testing.html">Testing</a></p>
+          <p><a href="/documentation/playframework-support.html">Play Support</a></p>
+          <p><a href="/documentation/dbconsole.html">dbconsole</a></p>
+          <p><a href="http://www.javadoc.io/doc/org.scalikejdbc/scalikejdbc-core_2.11/2.3.3">Core API Doc</a></p>
+          <p><a href="/documentation/faq.html">FAQ</a></p>
+          <p><a href="/contribution.html">Contribution</a></p>
+          <hr/>
+          <h5>Older Versions</h5>
+          <hr/>
+          <p><a href="/documentation/1.x/">version 1.x</a></p>
+        </div>
+      </div>
+    </div>
     </div>
     <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script>
+(function() {
+var cx = '000372347144050476309:fnw5lotlq6o';
+var gcse = document.createElement('script');
+gcse.type = 'text/javascript';
+gcse.async = true;
+gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//cse.google.com/cse.js?cx=' + cx;
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(gcse, s);
+})();
+</script>
   </body>
 </html>
-
